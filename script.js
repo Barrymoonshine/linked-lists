@@ -1,4 +1,4 @@
-const LinkedList = (head = null) => ({ head });
+const LinkedList = (head = null, size = 0) => ({ head, size });
 
 const NodeFactory = (value, nextNode = null) => ({ value, nextNode });
 
@@ -16,6 +16,7 @@ const prepend = (value) => {
     newNode.nextNode = myList.head;
     myList.head = newNode;
   }
+  myList.size += 1;
 };
 
 const getLastNode = () => {
@@ -39,6 +40,7 @@ const append = (value) => {
     console.log('last node:', lastNode);
     lastNode.nextNode = newNode;
   }
+  myList.size += 1;
 };
 
 const node2 = prepend(2);
@@ -46,3 +48,5 @@ const node1 = prepend(1);
 const node3 = append(3);
 
 console.log(myList);
+
+console.log(myList.size);
