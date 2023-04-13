@@ -43,6 +43,12 @@ const append = (value) => {
   myList.size += 1;
 };
 
+const head = () => myList.head;
+const tail = () => {
+  const lastNode = getLastNode();
+  return lastNode;
+};
+
 const node2 = prepend(2);
 const node1 = prepend(1);
 const node3 = append(3);
@@ -50,3 +56,7 @@ const node3 = append(3);
 console.log(myList);
 
 console.log(myList.size);
+
+console.log(head());
+
+console.log(tail());
