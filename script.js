@@ -18,9 +18,31 @@ const prepend = (value) => {
   }
 };
 
-const node1 = prepend(1);
-const node2 = prepend(2);
+const getLastNode = () => {
+  let node = myList.head;
+  while (node) {
+    if (!node.nextNode) {
+      return node;
+    }
+    node = node.nextNode;
+  }
+};
 
-// console.log(node1);
-// console.log(node2);
+const append = (value) => {
+  const newNode = NodeFactory(value);
+  // List empty
+  if (myList.head === null) {
+    myList.head = newNode;
+    // List not empty
+  } else if (myList.head !== null) {
+    const lastNode = getLastNode();
+    console.log('last node:', lastNode);
+    lastNode.nextNode = newNode;
+  }
+};
+
+const node2 = prepend(2);
+const node1 = prepend(1);
+const node3 = append(3);
+
 console.log(myList);
