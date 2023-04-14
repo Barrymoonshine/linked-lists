@@ -117,8 +117,28 @@ const findValue = (value) => {
       return (indexValue = index);
     }
   });
-
   return indexValue;
+};
+
+const toString = () => {
+  let myListString = '';
+  const myListArray = [];
+  let node = myList.head;
+  // Gets value of each node starting from the head, until null
+  // Pushes value into an array
+  while (node !== null) {
+    myListArray.push(node.value);
+    node = node.nextNode;
+  }
+  for (let i = 0; i <= myListArray.length; i += 1) {
+    if (i === myListArray.length) {
+      myListString += 'null';
+    } else {
+      myListString += `(${myListArray[i]}) -> `;
+    }
+  }
+
+  return myListString;
 };
 
 const node2 = prepend(2);
@@ -127,4 +147,4 @@ const node3 = append(3);
 
 pop();
 
-console.log(findValue(2));
+console.log(toString());
