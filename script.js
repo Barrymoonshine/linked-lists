@@ -77,13 +77,10 @@ const pop = () => {
   const lastNode = getLastNode();
   delete lastNode.value;
   delete lastNode.nextNode;
-
-  console.log(lastNode);
   let node = myList.head;
   // Then loops through the list until finds the empty node, and sets next to null
   while (node !== null) {
     if (Object.keys(node.nextNode).length === 0) {
-      console.log(node);
       node.nextNode = null;
     }
     if (node !== null) {
@@ -93,10 +90,41 @@ const pop = () => {
   myList.size -= 1;
 };
 
+const containsValue = (value) => {
+  let node = myList.head;
+  // Loops through linked list until value found or null
+  while (node !== null) {
+    if (node.value === value) {
+      return true;
+    }
+    node = node.nextNode;
+  }
+  return false;
+};
+
+const findValue = (value) => {
+  let indexValue = null;
+  const myListArray = [];
+  let node = myList.head;
+  // Gets value of each node starting from the head, until null
+  // Pushes value into an array
+  while (node !== null) {
+    myListArray.push(node.value);
+    node = node.nextNode;
+  }
+  myListArray.forEach((item, index) => {
+    if (item === value) {
+      return (indexValue = index);
+    }
+  });
+
+  return indexValue;
+};
+
 const node2 = prepend(2);
 const node1 = prepend(1);
 const node3 = append(3);
 
 pop();
 
-console.log(myList);
+console.log(findValue(2));
