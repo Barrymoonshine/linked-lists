@@ -137,7 +137,6 @@ const toString = () => {
       myListString += `(${myListArray[i]}) -> `;
     }
   }
-
   return myListString;
 };
 
